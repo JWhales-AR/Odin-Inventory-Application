@@ -1,0 +1,9 @@
+<nav class="header-navbar">
+  <ul class="header-navbar__inner">
+    <% navLinks.forEach((navLink => { %>
+      <li class="header-navbar__item">
+        <a href="<%= navLink.href %>"><%= navLink.label %></a>
+      </li>
+    <% })) %>
+  </ul>
+</nav>
