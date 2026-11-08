@@ -4,7 +4,7 @@ services:
     image: postgres
     volumes:
       - type: bind
-        source: ./src/init.sql
+        source: ./src/db/init.sql
         target: /docker-entrypoint-initdb.d/init.sql
     ports:
       - $DB_PORT:5432
