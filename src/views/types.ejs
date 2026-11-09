@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="/style.css" rel="stylesheet">
+    <title>Pokémon Manager</title>
+  </head>
+  <body>
+    <header>
+      <%- include('partials/navbar', { navLinks }) %>
+    </header>
+    <main>
+      <div class="pokemon-types-list">
+        <% if (types.length !== 0) { %>
+          <h1 class="centered-heading">Types</h1>
+          <%- include('partials/pokemon-type', { types }) %>
+        <% } else { %>
+          <p>No Types in DB</p>
+        <% } %>
+      </div>
+    </main>
+  </body>
+</html>

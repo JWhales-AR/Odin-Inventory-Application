@@ -18,6 +18,14 @@ export async function getAllTypes() {
   return rows;
 }
 
+export async function getPokemonForType(typeId: number) {
+  const { rows } = await pool.query<Pokemon>(
+    "SELECT dex_id, species FROM pokemon_type AS pt JOIN pokemon AS p ON pt.pokemon = p.dex_id WHERE pt.type = $1",
+    [typeId],
+  );
+  return rows;
+}
+
 interface Trainer {
   id: number;
   name: string;

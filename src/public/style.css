@@ -24,17 +24,19 @@ ul, ol {
     justify-content: center;
 }
 
+.pokemon-list__item,
+.pokemon-types-list__item,
 .header-navbar__item {
     & a {
         text-decoration: none;
     }
 }
-main > h1:first-of-type,
-.pokemon-list > h1:first-of-type {
+.centered-heading {
     margin-block: 1.0rem;
     text-align: center;
 }
 
+.pokemon-types-list__inner,
 .pokemon-list__inner {
     padding-inline: 1.0rem;
     display: grid;
@@ -43,6 +45,7 @@ main > h1:first-of-type,
 }
 
 @media(width >= 1000px) {
+    .pokemon-types-list__inner,
     .pokemon-list__inner {
         padding-inline: 2.0rem;
     }

@@ -1,0 +1,9 @@
+<ul class="pokemon-types-list__inner">
+  <% types.forEach((pokemonType) => { %>
+    <li class="pokemon-types-list__item">
+      <a href="types/<%= pokemonType.id %>">
+        <%= pokemonType.name %>
+      </a>
+    </li>
+  <% }) %>
+</ul>

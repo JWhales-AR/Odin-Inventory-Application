@@ -24,4 +24,14 @@ indexRouter.get("/pokemon", async (_res, req) => {
   req.render("pokemon", { navLinks, pokemon });
 });
 
+indexRouter.get("/types", async (_res, req) => {
+  const types = await db.getAllTypes();
+  req.render("types", { navLinks, types });
+});
+
+indexRouter.get("/types/:typeId", async (res, req) => {
+  const pokemon = await db.getPokemonForType(Number(res.params.typeId));
+  req.render("pokemon", { navLinks, pokemon });
+});
+
 export default indexRouter;
