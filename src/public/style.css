@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="mail"],
+input[type="url"],
+input[type="password"],
+textarea,
+button {
+    appearance: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.header-navbar__inner {
+    display: flex;
+    gap: 2.0rem;
+    justify-content: center;
+}
+
+.header-navbar__item {
+    & a {
+        text-decoration: none;
+    }
+}
+main > h1:first-of-type,
+.pokemon-list > h1:first-of-type {
+    margin-block: 1.0rem;
+    text-align: center;
+}
+
+.pokemon-list__inner {
+    padding-inline: 1.0rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22ch, 1fr));
+    place-items: center;
+}
+
+@media(width >= 1000px) {
+    .pokemon-list__inner {
+        padding-inline: 2.0rem;
+    }
+}
