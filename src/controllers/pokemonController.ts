@@ -5,5 +5,5 @@ import navLinks from "../navlinks.ts";
 
 export async function listAllPokemon(_req: Request, res: Response) {
   const pokemon = await db.getAllPokemon();
-  res.render("pokemon", { navLinks, pokemon });
+  res.render("pokemon", { navLinks, pokemon, typeName: undefined });
 }
