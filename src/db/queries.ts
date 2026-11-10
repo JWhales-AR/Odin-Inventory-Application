@@ -52,15 +52,28 @@ export async function getAllTrainers() {
   return rows;
 }
 
+export async function getTrainerName(trainerId: number) {
+  const { rows } = await pool.query<Trainer>(
+    "SELECT * FROM trainer WHERE id = $1",
+    [trainerId],
+  );
+  const [{ name }] = rows;
+  return name;
+}
+
 interface TrainerPokemon {
   id: number;
   pokemon: number;
   nickname: string;
+  species: string;
 }
 
 export async function getTrainerPokemon(trainerId: number) {
   const { rows } = await pool.query<TrainerPokemon>(
-    "SELECT * FROM trainer_pokemon WHERE trainer = $1",
+    `SELECT *
+     FROM trainer_pokemon AS pt
+     JOIN pokemon AS p ON p.dex_id = pt.pokemon
+     WHERE pt.trainer = $1`,
     [trainerId],
   );
   return rows;

@@ -208,6 +208,16 @@ VALUES
   (5, 2),
   (6, 2), (6, 10);
 
+INSERT INTO trainer (name, gender, age)
+VALUES
+  ('Ash Kechum', 'm', 10),
+  ('Brendan Birch', 'm', 10);
+
+INSERT INTO trainer_pokemon (trainer, pokemon)
+VALUES
+  (1, 1), (1, 3), (1, 6), (1, 150);
+
+
 -- Local Variables:
 -- sql-product: postgres
 -- End:

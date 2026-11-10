@@ -14,7 +14,9 @@
       <div class="pokemon-list">
         <% if (pokemon.length !== 0) { %>
           <h1 class="centered-heading">
-            Pokémon <%= typeName && `(${typeName})` %>
+            <%= trainerName && `${trainerName}'s ` %>
+            Pokémon
+            <%= typeName && `(${typeName})` %>
           </h1>
           <%- include('partials/pokemon', { pokemon }) %>
         <% } else { %>

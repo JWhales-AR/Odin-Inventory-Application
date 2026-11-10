@@ -1,0 +1,9 @@
+<ul class="trainer-list__inner">
+  <% trainers.forEach((trainer) => { %>
+    <li class="trainer-list__item">
+      <a href="trainers/<%= trainer.id %>">
+        <%= trainer.name %>
+      </a>
+    </li>
+  <% }) %>
+</ul>

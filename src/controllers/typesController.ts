@@ -12,5 +12,10 @@ export async function listPokemonForType(req: Request, res: Response) {
   const typeId = Number(req.params.typeId);
   const typeName = await db.getTypeName(typeId);
   const pokemon = await db.getPokemonForType(typeId);
-  res.render("pokemon", { navLinks, pokemon, typeName });
+  res.render("pokemon", {
+    navLinks,
+    pokemon,
+    typeName,
+    trainerName: undefined,
+  });
 }

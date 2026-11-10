@@ -26,6 +26,7 @@ ul, ol {
 
 .pokemon-list__item,
 .pokemon-types-list__item,
+.trainer-list__item,
 .header-navbar__item {
     & a {
         text-decoration: none;
@@ -37,6 +38,7 @@ ul, ol {
 }
 
 .pokemon-types-list__inner,
+.trainer-list__inner,
 .pokemon-list__inner {
     padding-inline: 1.0rem;
     display: grid;
@@ -46,6 +48,7 @@ ul, ol {
 
 @media(width >= 1000px) {
     .pokemon-types-list__inner,
+    .trainer-list__inner,
     .pokemon-list__inner {
         padding-inline: 2.0rem;
     }
