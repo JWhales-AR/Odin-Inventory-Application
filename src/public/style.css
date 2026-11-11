@@ -37,6 +37,15 @@ ul, ol {
     text-align: center;
 }
 
+.pokemon-types-list,
+.trainer-list,
+.pokemon-list {
+    & p:only-child {
+        margin-top: 1.0rem;
+        text-align: center;
+    }
+}
+
 .pokemon-types-list__inner,
 .trainer-list__inner,
 .pokemon-list__inner {
