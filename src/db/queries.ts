@@ -61,6 +61,17 @@ export async function getTrainerName(trainerId: number) {
   return name;
 }
 
+export async function addNewTrainer(
+  name: string,
+  gender: "m" | "f",
+  age: number,
+) {
+  await pool.query<Trainer>(
+    "INSERT INTO trainer (name, gender, age) VALUES ($1, $2, $3)",
+    [name, gender, age],
+  );
+}
+
 interface TrainerPokemon {
   id: number;
   pokemon: number;

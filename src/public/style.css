@@ -62,3 +62,50 @@ ul, ol {
         padding-inline: 2.0rem;
     }
 }
+
+.trainer-add-redirect-button__container {
+    margin-top: 3.0rem;
+    text-align: center;
+}
+
+.add-trainer-button,
+.trainer-add-redirect-button {
+    border: none;
+    background-color: slateblue;
+    color: white;
+    font-weight: 900;
+    padding-block: 0.3rem;
+    padding-inline: 0.8rem;
+
+    &:hover {
+        background-color: aliceblue;
+        color: slateblue
+    }
+}
+
+.new-trainer-form__container {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.new-trainer-form {
+    width: min(90%, 800px);
+    color: blue;
+}
+
+.new-trainer-form fieldset {
+    border: 1pt solid slateblue;
+    margin-bottom: 1.0rem;
+    padding: 0.8rem;
+}
+
+label:has(~ input[required])::after {
+    margin-left: 0.2rem;
+    content: "*";
+    color: slateblue;
+}
+
+.horizontal-radio-wrapper {
+    margin-left: 1.0rem;
+}

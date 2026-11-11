@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    >
+    <link href="/style.css" rel="stylesheet">
+    <title>Pokémon Manager</title>
+  </head>
+  <body>
+    <header>
+      <%- include('partials/navbar', { navLinks }) %>
+    </header>
+    <main>
+      <div class="new-trainer-form__container">
+        <form class="new-trainer-form" action="/trainers" method="POST">
+          <fieldset>
+            <legend>New Trainer</legend>
+            <div class="form-field-wrapper">
+              <label for="trainer-name">Name</label>
+              <input
+                name="trainerName" type="text" value="" id="trainer-name"
+                required
+              >
+            </div>
+            <div class="form-field-wrapper">
+              <label for="trainer-gender">Gender</label>
+              <div class="horizontal-radio-wrapper">
+                <label for="gender-radio-male">Male</label>
+                <input
+                  name="trainerGender" id="gender-radio-male"
+                  type="radio" value="m" checked
+                >
+                <label for="gender-radio-female">Female</label>
+                <input
+                  name="trainerGender" id="gender-radio-female"
+                  type="radio" value="f"
+                >
+              </div>
+            </div>
+            <div class="form-field-wrapper">
+              <label for="trainer">Age</label>
+              <input
+                name="trainerAge" value="10" min="10" max="120"
+                type="number" value=""
+                required
+              >
+            </div>
+          </fieldset>
+          <button class="add-trainer-button" type="submit">Add Trainer</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
