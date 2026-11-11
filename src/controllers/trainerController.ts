@@ -12,12 +12,12 @@ export async function listAllTrainers(_req: Request, res: Response) {
 export async function listPokemonForTrainer(req: Request, res: Response) {
   const trainerId = Number(req.params.trainerId);
   const trainerName = await db.getTrainerName(trainerId);
+  const listHeading = `${trainerName}'s Pokémon`;
   const pokemon = await db.getTrainerPokemon(trainerId);
-  res.render("pokemon", {
+  res.render("trainer-pokemon", {
     navLinks,
     pokemon,
-    typeName: undefined,
-    trainerName,
+    listHeading,
   });
 }
 

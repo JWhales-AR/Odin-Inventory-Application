@@ -11,11 +11,11 @@ export async function listAllTypes(_req: Request, res: Response) {
 export async function listPokemonForType(req: Request, res: Response) {
   const typeId = Number(req.params.typeId);
   const typeName = await db.getTypeName(typeId);
+  const listHeading = `Pokémon (${typeName})`;
   const pokemon = await db.getPokemonForType(typeId);
-  res.render("pokemon", {
+  res.render("type-pokemon", {
     navLinks,
     pokemon,
-    typeName,
-    trainerName: undefined,
+    listHeading,
   });
 }
