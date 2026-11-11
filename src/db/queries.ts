@@ -67,7 +67,8 @@ export async function addNewTrainer(
   age: number,
 ) {
   await pool.query<Trainer>(
-    "INSERT INTO trainer (name, gender, age) VALUES ($1, $2, $3)",
+    `INSERT INTO trainer (name, gender, age)
+     VALUES ($1, $2, $3)`,
     [name, gender, age],
   );
 }
@@ -88,4 +89,16 @@ export async function getTrainerPokemon(trainerId: number) {
     [trainerId],
   );
   return rows;
+}
+
+export async function addNewTrainerPokemon(
+  trainerId: number,
+  speciesId: number,
+  nickname: string,
+) {
+  await pool.query<TrainerPokemon>(
+    `INSERT INTO trainer_pokemon (trainer, pokemon, nickname)
+     VALUES ($1, $2, $3)`,
+    [trainerId, speciesId, nickname],
+  );
 }

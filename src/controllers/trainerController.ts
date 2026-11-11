@@ -18,6 +18,7 @@ export async function listPokemonForTrainer(req: Request, res: Response) {
     navLinks,
     pokemon,
     listHeading,
+    trainerId,
   });
 }
 
@@ -37,18 +38,60 @@ const addNewTrainerValidators = [
 
 export const addNewTrainer = [
   ...addNewTrainerValidators,
-  (req: Request, res: Response) => {
+  async (req: Request, res: Response) => {
     const err = validationResult(req);
     if (!err.isEmpty()) {
       res.status(500).send(err);
       return;
     }
-    const { trainerName, trainerGender, trainerAge } = req.body;
-    db.addNewTrainer(trainerName, trainerGender, trainerAge);
+    const { trainerName, trainerGender, trainerAge: _trainerAge } = req.body;
+    const trainerAge = Number(_trainerAge);
+    await db.addNewTrainer(trainerName, trainerGender, trainerAge);
+    res.redirect("/trainers");
+  },
+];
+
+const addNewTrainerPokemonValidators = [
+  body("pokemonNickname")
+    .trim()
+    .notEmpty()
+    .withMessage("Nickname must not be empty"),
+  body("pokemonSpecies")
+    .trim()
+    .notEmpty()
+    .withMessage("Species must not be empty")
+    .isNumeric()
+    .withMessage("Species must be a numeric identifier"),
+];
+
+export const addNewTrainerPokemon = [
+  ...addNewTrainerPokemonValidators,
+  async (req: Request, res: Response) => {
+    const err = validationResult(req);
+    if (!err.isEmpty()) {
+      res.status(500).send(err);
+      return;
+    }
+    const trainerId = Number(req.params.trainerId);
+    const { pokemonNickname, pokemonSpecies: _pokemonSpecies } = req.body;
+    const pokemonSpecies = Number(_pokemonSpecies);
+    await db.addNewTrainerPokemon(trainerId, pokemonSpecies, pokemonNickname);
     res.redirect("/trainers");
   },
 ];
 
 export async function showAddTrainerForm(_req: Request, res: Response) {
   res.render("add-trainer-form", { navLinks });
+}
+
+export async function showAddTrainerPokemonForm(req: Request, res: Response) {
+  const trainerId = Number(req.params.trainerId);
+  const trainerName = await db.getTrainerName(trainerId);
+  const pokemon = await db.getAllPokemon();
+  res.render("add-trainer-pokemon-form", {
+    navLinks,
+    trainerId,
+    trainerName,
+    pokemon,
+  });
 }

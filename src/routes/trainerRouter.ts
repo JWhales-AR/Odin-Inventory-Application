@@ -12,4 +12,11 @@ trainerRouter.get("/new", trainerController.showAddTrainerForm);
 
 trainerRouter.get("/:trainerId", trainerController.listPokemonForTrainer);
 
+trainerRouter.get(
+  "/:trainerId/new",
+  trainerController.showAddTrainerPokemonForm,
+);
+
+trainerRouter.post("/:trainerId", trainerController.addNewTrainerPokemon);
+
 export default trainerRouter;

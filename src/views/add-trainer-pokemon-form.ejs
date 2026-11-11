@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    >
+    <link href="/style.css" rel="stylesheet">
+    <link href="/favicon.svg" type="image/svg+xml" rel="icon">
+    <title>Pokémon Manager</title>
+  </head>
+  <body>
+    <header>
+      <%- include('partials/navbar', { navLinks }) %>
+    </header>
+    <main>
+      <div class="new-trainer-pokemon-form__container">
+        <form
+          class="new-trainer-pokemon-form"
+          action=<%= `/trainers/${trainerId}` %> method="POST"
+        >
+          <fieldset>
+            <legend>New Trainer Pokémon</legend>
+            <div class="form-field-wrapper">
+              <label for="trainer-pokemon-trainer-name">Trainer Name</label>
+              <input
+                name="pokemonTrainerName" type="text"
+                value="<%= trainerName %>" id="trainer-pokemon-nickname"
+                disabled
+              >
+            </div>
+            <div class="form-field-wrapper">
+              <label for="trainer-pokemon-nickname">Nickname</label>
+              <input
+                name="pokemonNickname" type="text" value=""
+                id="trainer-pokemon-nickname" required
+              >
+            </div>
+            <div class="form-field-wrapper">
+              <label for="trainer-pokemon-species">Species</label>
+              <select id="trainer-pokemon-species" name="pokemonSpecies">
+                <% pokemon.forEach(monster => { %>
+                  <option value="<%= monster.dex_id %>">
+                    <%= monster.species %>
+                  </option>
+                <% }) %>
+              </select>
+            </div>
+          </fieldset>
+          <button
+            class="add-trainer-pokemon-button" type="submit"
+          >Add Trainer</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

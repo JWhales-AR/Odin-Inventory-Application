@@ -63,12 +63,15 @@ ul, ol {
     }
 }
 
+.pokemon-add-redirect-button__container,
 .trainer-add-redirect-button__container {
     margin-top: 3.0rem;
     text-align: center;
 }
 
+.add-trainer-pokemon-button,
 .add-trainer-button,
+.pokemon-add-redirect-button,
 .trainer-add-redirect-button {
     border: none;
     background-color: slateblue;
@@ -83,21 +86,37 @@ ul, ol {
     }
 }
 
+.new-trainer-pokemon-form__container,
 .new-trainer-form__container {
     margin-top: 1.5rem;
     display: flex;
     justify-content: center;
 }
 
+.new-trainer-pokemon-form,
 .new-trainer-form {
     width: min(90%, 800px);
     color: blue;
 }
 
-.new-trainer-form fieldset {
-    border: 1pt solid slateblue;
-    margin-bottom: 1.0rem;
-    padding: 0.8rem;
+.new-trainer-pokemon-form,
+.new-trainer-form {
+    & fieldset {
+        border: 1pt solid slateblue;
+        margin-bottom: 1.0rem;
+        padding: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    & select,
+    & input[type="text"] {
+        padding-inline: 0.2rem;
+        padding-block: 0.1rem;
+        border: 1pt solid slateblue;
+        background-color: inherit;
+    }
 }
 
 label:has(~ input[required])::after {

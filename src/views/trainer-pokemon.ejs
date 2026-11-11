@@ -18,7 +18,7 @@
       <%- include('partials/pokemon-list', { heading: listHeading }) %>
       <div class="pokemon-add-redirect-button__container">
         <button
-          onclick="location.href='new'"
+          onclick="location.href='<%= trainerId %>/new'"
           class="pokemon-add-redirect-button"
         >+ Pokemon</button>
       </div>
