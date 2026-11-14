@@ -6,7 +6,10 @@ import navLinks from "../navlinks.ts";
 
 export async function listAllTrainers(_req: Request, res: Response) {
   const trainers = await db.getAllTrainers();
-  res.render("trainers", { navLinks, trainers });
+  res.render("trainers", {
+    navLinks,
+    trainers,
+  });
 }
 
 export async function listPokemonForTrainer(req: Request, res: Response) {
@@ -94,4 +97,10 @@ export async function showAddTrainerPokemonForm(req: Request, res: Response) {
     trainerName,
     pokemon,
   });
+}
+
+export async function deleteTrainer(req: Request, res: Response) {
+  const trainerId = Number(req.params.trainerId);
+  await db.deleteTrainer(trainerId);
+  res.redirect("/trainers");
 }

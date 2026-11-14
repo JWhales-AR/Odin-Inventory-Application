@@ -128,3 +128,31 @@ label:has(~ input[required])::after {
 .horizontal-radio-wrapper {
     margin-left: 1.0rem;
 }
+
+.-square-box {
+    width: 1.6rem;
+    aspect-ratio: 1.0;
+    padding: 0.1rem;
+    border: none;
+}
+
+.list-delete-button,
+.list-edit-button {
+    color: white;
+}
+
+.list-delete-button {
+    background-color: indianred;
+
+    &:hover {
+        background-color: firebrick;
+    }
+}
+
+.list-edit-button {
+    background-color: limegreen;
+
+    &:hover {
+        background-color: seagreen;
+    }
+}

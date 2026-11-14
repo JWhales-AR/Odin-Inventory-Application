@@ -19,4 +19,6 @@ trainerRouter.get(
 
 trainerRouter.post("/:trainerId", trainerController.addNewTrainerPokemon);
 
+trainerRouter.get("/:trainerId/delete", trainerController.deleteTrainer);
+
 export default trainerRouter;

@@ -102,3 +102,7 @@ export async function addNewTrainerPokemon(
     [trainerId, speciesId, nickname],
   );
 }
+
+export async function deleteTrainer(trainerId: number) {
+  await pool.query("DELETE FROM trainer WHERE id = $1", [trainerId]);
+}

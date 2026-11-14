@@ -1,6 +1,12 @@
 <ul class="trainer-list__inner">
   <% trainers.forEach((trainer) => { %>
     <li class="trainer-list__item">
+      <form
+        style="display: inline"
+        action="/trainers/<%= trainer.id %>/delete"
+        method="DELETE">
+        <button type="submit" class="list-delete-button -square-box">⨯</button>
+      </form>
       <a href="trainers/<%= trainer.id %>">
         <%= trainer.name %>
       </a>

@@ -7,8 +7,8 @@ CREATE TABLE pokemon (
 
 CREATE TABLE evolution (
   id      INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  pokemon INTEGER REFERENCES pokemon(dex_id),
-  next    INTEGER REFERENCES pokemon(dex_id)
+  pokemon INTEGER REFERENCES pokemon(dex_id) ON DELETE CASCADE,
+  next    INTEGER REFERENCES pokemon(dex_id) ON DELETE CASCADE
 );
 
 CREATE TABLE type (
@@ -18,8 +18,8 @@ CREATE TABLE type (
 
 CREATE TABLE pokemon_type (
   id      INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  pokemon INTEGER REFERENCES pokemon(dex_id),
-  type    INTEGER REFERENCES type(id)
+  pokemon INTEGER REFERENCES pokemon(dex_id) ON DELETE CASCADE,
+  type    INTEGER REFERENCES type(id) ON DELETE CASCADE
 );
 
 CREATE TABLE trainer (
@@ -31,8 +31,8 @@ CREATE TABLE trainer (
 
 CREATE TABLE trainer_pokemon (
   id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  trainer INTEGER REFERENCES trainer(id),
-  pokemon INTEGER REFERENCES pokemon(dex_id),
+  trainer INTEGER REFERENCES trainer(id) ON DELETE CASCADE,
+  pokemon INTEGER REFERENCES pokemon(dex_id) ON DELETE CASCADE,
   nickname VARCHAR(32)
 );
 
